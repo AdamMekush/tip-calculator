@@ -47,6 +47,9 @@ struct ContentView: View {
                             Text("\($0)")
                         }
                     }
+                    #if os(macOS)
+                        .padding()
+                    #endif
                     
                     Section {
                         Text(calculateTipPerPerson(value: value, tip: selectedTip, people: selectedPeople), format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
